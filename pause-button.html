@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Centered Table with Marquee</title>
+  <style>
+    * {
+      font-weight: bold;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    table {
+      margin: 0 auto;
+      border-collapse: collapse;
+    }
+
+    td {
+      border: 1px solid black;
+      padding: none;
+      text-align: center;
+      height: 70px;
+      width: 100px;
+      vertical-align: middle;
+    }
+
+    marquee {
+      width: 100%;
+      display: inline-block;
+    }
+
+    .center {
+      padding-left: 70px;
+    }
+
+    .box {
+      border: none;
+      display: inline-table;
+      background-color: red;
+      height: 40px;
+      width: 70px;
+    }
+
+    button {
+      display: inline;
+      margin: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .buttons-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <table>
+    <tr><td>Text</td></tr>
+    <tr><td>Text</td></tr>
+    <tr><td>Text</td></tr>
+    <tr><td>Text</td></tr>
+    <tr><td class="center">Text</td></tr>
+    <tr><td class="center">Text</td></tr>
+    <tr><td class="center">Text</td></tr>
+    <tr><td><div class="box"></div></td></tr>
+  </table>
+  
+
+
+<div class="buttons-container">
+  <button onclick="redirectToPage('pause-button.html')">Pause</button>
+  <button onclick="redirectToPage('play-button.html')">Play</button>
+</div>
+
+<script>
+  function changeColor() {
+    const cell = document.getElementById('colorChangeCell');
+    const colors = ['red', 'green', 'blue', 'purple', 'orange'];
+    let currentColor = cell.style.color;
+    let nextColor = colors[(colors.indexOf(currentColor) + 1) % colors.length];
+    cell.style.color = nextColor;
+  }
+
+  function changeBoxColor() {
+    const box = document.getElementById('colorChangeDiv');
+    const colors = ['red', 'green', 'blue', 'purple', 'orange'];
+    let currentColor = box.style.backgroundColor;
+    let nextColor = colors[(colors.indexOf(currentColor) + 1) % colors.length];
+    box.style.backgroundColor = nextColor;
+  }
+
+  function redirectToPage(page) {
+    window.location.href = page;
+  }
+
+  setInterval(changeColor, 1950);
+  setInterval(changeBoxColor, 1417);
+</script>
+
+</body>
+</html>
